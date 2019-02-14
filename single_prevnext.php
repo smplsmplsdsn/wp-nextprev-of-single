@@ -7,13 +7,13 @@
 // 現在の投稿IDを取得する
 $current_id = $post -> ID;
 
-// 現在の投稿のターム（id）を取得する
+// 現在の投稿のカテゴリーのターム（id）を取得する
 $category = get_the_category($current_id);
 $category = $category[0];
 $category_id = $category -> term_id;
 $ancestors = get_ancestors($category_id, "category");
 
-// 現在の投稿の祖先のターム（id）を取得する（なければ現在の投稿のターム）
+// 現在の投稿の祖先のカテゴリーのターム（id）を取得する（なければ現在のカテゴリーの投稿のターム）
 if (count($ancestors) > 0) {
   $ancestor_id = array_reverse($ancestors);
   $ancestor_id = $ancestor_id[0];
@@ -79,7 +79,7 @@ if ("" != $next_id || "" != $prev_id):
     <li>タイトル：<?php echo get_the_title($nextprev_id); ?></li>
     <li>URL：<?php echo get_the_permalink($nextprev_id); ?></li>
     <li>日付：<?php echo get_the_date("Y-m-d H:i", $nextprev_id); ?></li>
-    <li>サムネイルURL：<?php if (get_the_post_thumbnail_url($nextprev_id)) { echo get_the_post_thumbnail_url($nextprev_id); }; ?></li>
+    <li>サムネイル：<?php if (get_the_post_thumbnail_url($nextprev_id)) { echo get_the_post_thumbnail_url($nextprev_id); }; ?></li>
     <?php
     $sngl_category = get_the_category($nextprev_id);
     $sngl_category = $sngl_category[0];
@@ -98,7 +98,7 @@ if ("" != $next_id || "" != $prev_id):
     <li>タイトル：<?php echo get_the_title($nextprev_id); ?></li>
     <li>URL：<?php echo get_the_permalink($nextprev_id); ?></li>
     <li>日付：<?php echo get_the_date("Y-m-d H:i", $nextprev_id); ?></li>
-    <li>サムネイルURL：<?php echo (get_the_post_thumbnail_url($nextprev_id))? get_the_post_thumbnail_url($nextprev_id): "なし"; ?></li>
+    <li>サムネイル：<?php echo (get_the_post_thumbnail_url($nextprev_id))? get_the_post_thumbnail_url($nextprev_id): "なし"; ?></li>
     <?php
     $sngl_category = get_the_category($nextprev_id);
     $sngl_category = $sngl_category[0];
