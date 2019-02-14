@@ -81,13 +81,13 @@ if ("" != $next_id || "" != $prev_id):
     <li>日付：<?php echo get_the_date("Y-m-d H:i", $nextprev_id); ?></li>
     <li>サムネイル：<?php if (get_the_post_thumbnail_url($nextprev_id)) { echo get_the_post_thumbnail_url($nextprev_id); }; ?></li>
     <?php
-    $sngl_category = get_the_category($nextprev_id);
-    $sngl_category = $sngl_category[0];
-    $sngl_category_name = $sngl_category->name;
-    $sngl_category_base = $sngl_category->slug;
+    $category = get_the_category($nextprev_id);
+    $category = $category[0];
+    $category_name = $category->name;
+    $category_base = $category->slug;
     ?>
-    <li>カテゴリー名：<?php echo $sngl_category_name; ?></li>
-    <li>カテゴリースラッグ：<?php echo $sngl_category_base; ?></li>
+    <li>カテゴリー名：<?php echo $category_name; ?></li>
+    <li>カテゴリースラッグ：<?php echo $category_base; ?></li>
   </ul>
   などなど、よしなに
   <?php endif; ?>
@@ -100,13 +100,13 @@ if ("" != $next_id || "" != $prev_id):
     <li>日付：<?php echo get_the_date("Y-m-d H:i", $nextprev_id); ?></li>
     <li>サムネイル：<?php echo (get_the_post_thumbnail_url($nextprev_id))? get_the_post_thumbnail_url($nextprev_id): "なし"; ?></li>
     <?php
-    $sngl_category = get_the_category($nextprev_id);
-    $sngl_category = $sngl_category[0];
-    $sngl_category_name = $sngl_category->name;
-    $sngl_category_base = $sngl_category->slug;
+    $category = get_the_category($nextprev_id);
+    $category = $category[0];
+    $category_name = $category->name;
+    $category_base = $category->slug;
     ?>
-    <li>カテゴリー名：<?php echo $sngl_category_name; ?></li>
-    <li>カテゴリースラッグ：<?php echo $sngl_category_base; ?></li>
+    <li>カテゴリー名：<?php echo $category_name; ?></li>
+    <li>カテゴリースラッグ：<?php echo $category_base; ?></li>
   </ul>
   などなど、よしなに
   <?php endif; ?>
